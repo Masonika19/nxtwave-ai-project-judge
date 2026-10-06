@@ -3,11 +3,10 @@ import streamlit as st
 
 st.set_page_config(
     page_title="NxtWave AI Project Judge",
-    page_icon="🧠",
     layout="centered"
 )
 
-st.title("🧠 NxtWave AI Project Judge")
+st.title("NxtWave AI Project Judge")
 st.caption("Automated AI Project Evaluation")
 
 WEBHOOK_URL = st.secrets["N8N_WEBHOOK_URL"]
@@ -28,7 +27,7 @@ with st.form("submit_form"):
     )
 
     submitted = st.form_submit_button(
-        "🚀 Evaluate My Project"
+        " Evaluate My Project"
     )
 
 if submitted:
@@ -83,7 +82,7 @@ if submitted:
         st.code(response.text)
         st.stop()
 
-    st.success("✅ Evaluation Complete")
+    st.success("Evaluation Complete")
 
     # =========================
     # TOTAL SCORE
@@ -100,7 +99,7 @@ if submitted:
     # SCORE BREAKDOWN
     # =========================
 
-    st.subheader("📊 Score Breakdown")
+    st.subheader("Score Breakdown")
 
     scores = [
         ("Functionality", "working_score", 25),
@@ -131,10 +130,10 @@ if submitted:
     strengths = data.get("strengths") or []
 
     if strengths:
-        st.subheader("💪 Strengths")
+        st.subheader(" Strengths")
 
         for item in strengths:
-            st.write(f"✅ {item}")
+            st.write(f" {item}")
 
     # =========================
     # IMPROVEMENTS
@@ -143,7 +142,7 @@ if submitted:
     improvements = data.get("improvements") or []
 
     if improvements:
-        st.subheader("🔧 Areas for Improvement")
+        st.subheader(" Areas for Improvement")
 
         for item in improvements:
             st.write(f"• {item}")
@@ -155,7 +154,7 @@ if submitted:
     evidence = data.get("evidence_summary")
 
     if evidence:
-        st.subheader("🔍 Evaluation Evidence")
+        st.subheader(" Evaluation Evidence")
         st.info(evidence)
 
     # =========================
@@ -165,7 +164,7 @@ if submitted:
     resume_bullet = data.get("resume_bullet")
 
     if resume_bullet:
-        st.subheader("📄 Resume-Ready Bullet")
+        st.subheader(" Resume-Ready Bullet")
 
         st.code(
             resume_bullet,
@@ -179,7 +178,7 @@ if submitted:
     if data.get("review_required", False):
 
         st.warning(
-            f"⚠️ Review Recommended "
+            f"Review Recommended "
             f"({data.get('review_risk', 'unknown').upper()} risk)"
         )
 
@@ -190,4 +189,4 @@ if submitted:
 
     else:
 
-        st.success("✅ Automatically Evaluated")
+        st.success("Automatically Evaluated")
